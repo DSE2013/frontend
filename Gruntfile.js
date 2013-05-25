@@ -18,6 +18,7 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
+        tmp: '.tmp',
         dist: 'dist'
     };
 
@@ -41,7 +42,7 @@ module.exports = function (grunt) {
                 tasks: ['compass:server']
             },
             neuter: {
-              files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+              files: ['<%= yeoman.tmp %>/scripts/{,*/}*.js'],
               tasks: ['neuter', 'livereload']
             },
             livereload: {
@@ -64,8 +65,8 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'static-api'),
+                            mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'app')
                         ];
                     }
@@ -75,6 +76,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
+                            mountFolder(connect, 'static-api'),
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'test')
                         ];
@@ -89,11 +91,6 @@ module.exports = function (grunt) {
                         ];
                     }
                 }
-            }
-        },
-        open: {
-            server: {
-                path: 'http://localhost:<%= connect.options.port %>'
             }
         },
         clean: {
@@ -119,6 +116,14 @@ module.exports = function (grunt) {
                 '!<%= yeoman.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
             ]
+        },
+        jasmine: {
+            all: {
+                src: '.tmp/scripts',
+                options: {
+                    specs: ['test/spec/{,*/}*.js', '.tmp/spec/{,*/}*.js']
+                }
+            }
         },
         coffee: {
             dist: {
@@ -298,7 +303,10 @@ module.exports = function (grunt) {
         },
         neuter: {
           app: {
-              src: '<%= yeoman.app %>/scripts/app.js',
+            options: {
+                filepathTransform: function(filepath){ return '.tmp/scripts/' + filepath; }
+            },
+              src: '<%= yeoman.tmp %>/scripts/app.js',
               dest: '.tmp/scripts/combined-scripts.js'
           }
         }
@@ -308,15 +316,15 @@ module.exports = function (grunt) {
 
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
 
         grunt.task.run([
             'clean:server',
             'concurrent:server',
+            'neuter:app',
             'livereload-start',
             'connect:livereload',
-            'open',
             'watch'
         ]);
     });
@@ -325,6 +333,7 @@ module.exports = function (grunt) {
         'clean:server',
         'concurrent:test',
         'connect:test',
+        'jasmine'
     ]);
 
     grunt.registerTask('build', [
