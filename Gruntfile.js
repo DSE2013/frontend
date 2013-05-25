@@ -65,6 +65,7 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
+                            mountFolder(connect, 'static-api'),
                             mountFolder(connect, 'app')
                         ];
                     }
