@@ -1,1 +1,0 @@
-Hospitality.IndexCurrentRoute = Ember.Route.extend(Hospitality.DontSetupModelForControllerMixin)

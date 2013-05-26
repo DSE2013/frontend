@@ -1,5 +1,3 @@
-# require ''
-
 @Hospitality.User = DS.Model.extend
 	name:		DS.attr 'string'
 	ssn:		DS.attr 'string'

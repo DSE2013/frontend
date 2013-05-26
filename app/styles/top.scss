@@ -29,14 +29,18 @@
 
 	li {
 		display: inline-block;
+		line-height: 40px;
 
 		a, span {
 			display: block;
 			padding: 0 15px;
+			height: 100%;
 
 			&:hover {
 				color: $color-link-top-highlight;
 			}
+
+			&.active { background: black; }
 		}
 	}
 
@@ -59,54 +63,4 @@
 			border-radius: 0 0 6px 6px;
 		}
 	}
-
-	.menu.profile {
-		float: right;
-
-		.handle > * {
-			display: none;
-			padding: 0 15px 0 45px;
-		}
-
-		.signed-out, .signing-in {
-			min-width: 110px;
-		}
-
-		&.signed-out .signed-out { display: block; }
-		&.signing-in .signing-in { display: inline-block; }
-		&.signed-in .signed-in { display: block; }
-
-		.signing-in {
-			// background: inline-image('ui/spinner.gif') no-repeat 110px 16px;
-		}
-
-		img {
-			position: absolute;
-			top: 7px;
-			left: 15px;
-			width: 22px;
-			height: 22px;
-			border-radius: 3px;
-		}
-
-		ul {
-			min-width: 145px;
-
-			a {
-				padding: 5px 25px 5px 45px;
-			}
-		}
-
-		&:not(.signed-in):hover ul {
-			display: none;
-		}
-	}
-}
-
-#home #navigation .home,
-#stats #navigation .stats,
-#profile #navigation .profile {
-	// background-color: $color-bg-link-top;
-
-	a { color: $color-link-top-highlight; }
 }
