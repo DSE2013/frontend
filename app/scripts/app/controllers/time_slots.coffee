@@ -1,0 +1,1 @@
+Hospitality.TimeSlotsController = Ember.ArrayController.extend()

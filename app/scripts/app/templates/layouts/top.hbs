@@ -1,0 +1,28 @@
+{{#linkTo index}}
+	<h1>Hospitality</h1>
+{{/linkTo}}
+
+<ul id="navigation">
+	<li class="home">
+		{{#linkTo index}}Home{{/linkTo}}
+	</li>
+	<li {{bindAttr class="view.classTimeSlots"}}>
+		{{#linkTo time_slots}}Time Slots{{/linkTo}}
+	</li>
+
+	<li {{bindAttr class="view.classProfile"}}>
+		<p class="handle">
+			<a href="#" class="signed-out" {{action signIn target="Hospitality"}}>Sign in</a>
+			{{#linkTo "index" class="signed-in"}}{{view.userName}}{{/linkTo}}
+			<span class="signing-in">Signing in</span>
+		</p>
+		<ul>
+			<li>
+				{{#linkTo "index" class="signed-in"}}Accounts{{/linkTo}}
+			</li>
+			<li>
+				<a href="/" {{action signOut target="Hospitality"}}>Sign out</a>
+			</li>
+		</ul>
+	</li>
+</ul>

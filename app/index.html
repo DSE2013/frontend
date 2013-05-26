@@ -2,10 +2,17 @@
 <html>
     <head>
         <meta charset="utf-8">
+
+        <meta rel="hospitality.api_endpoint" href="http://localhost:9000/api">
+
         <title>Yeoman Ember Starter Kit</title>
 
         <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="bower_components/font-awesome/build/assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/build/assets/font-awesome/css/font-awesome-ie7.min.css">
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/top.css">
+        <link rel="stylesheet" href="styles/time_slots.css">
         <!-- endbuild -->
 </head>
     <body>
@@ -27,6 +34,7 @@
         <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
@@ -41,5 +49,9 @@
         <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
         <!-- endbuild -->
+
+        <script>
+            Hospitality.run();
+        </script>
 </body>
 </html>

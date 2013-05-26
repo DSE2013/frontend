@@ -26,11 +26,11 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
         watch: {
             ember_templates: {
-              files: '<%= yeoman.app %>/templates/**/*.hbs',
+              files: '<%= yeoman.app %>/scripts/app/templates/**/*.hbs',
               tasks: ['ember_templates', 'livereload']
             },
             coffee: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
+                files: ['<%= yeoman.app %>/scripts/{,**/}*.coffee'],
                 tasks: ['coffee:dist']
             },
             coffeeTest: {
@@ -130,7 +130,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/scripts',
-                    src: '{,*/}*.coffee',
+                    src: '{,**/}*.coffee',
                     dest: '.tmp/scripts',
                     ext: '.js'
                 }]
@@ -291,22 +291,22 @@ module.exports = function (grunt) {
         ember_templates: {
             options: {
                 templateName: function (sourceFile) {
-                    var templatePath = yeomanConfig.app + '/templates/';
+                    var templatePath = yeomanConfig.app + '/scripts/app/templates/';
                     return sourceFile.replace(templatePath, '');
                 }
             },
             dist: {
                 files: {
-                    '.tmp/scripts/compiled-templates.js': '<%= yeoman.app %>/templates/{,*/}*.hbs'
+                    '.tmp/scripts/compiled-templates.js': '<%= yeoman.app %>/scripts/app/templates/{,**/}*.hbs'
                 }
             }
         },
         neuter: {
           app: {
             options: {
-                filepathTransform: function(filepath){ return '.tmp/scripts/' + filepath; }
+                filepathTransform: function(filepath){ return '.tmp/scripts/app/' + filepath; }
             },
-              src: '<%= yeoman.tmp %>/scripts/app.js',
+              src: '<%= yeoman.tmp %>/scripts/hospitality.js',
               dest: '.tmp/scripts/combined-scripts.js'
           }
         }

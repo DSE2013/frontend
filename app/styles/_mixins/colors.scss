@@ -1,0 +1,27 @@
+$black: #000;
+$white: #FFF;
+
+$gray-dark-1: 	#333;
+$gray-dark-2: 	#444;
+$gray-dark-3: 	#666;
+$gray-medium-1: #999;
+$gray-medium-2: #AAA;
+$gray-medium-3: #CCC;
+$gray-light-1: 	#DDD;
+$gray-light-2: 	#EFEFEF;
+$gray-light-3: 	#F6F6F6;
+$gray-light-4: 	#FDFDFD;
+
+$color-text: 					$gray-dark-3;
+$color-text-light: 		$gray-medium-1;
+$color-text-lighter: 	$gray-medium-2;
+$color-text-log: 			#F1F1F1;
+
+$color-link: 								$gray-dark-3;
+$color-link-highlight: 			$gray-medium-1;
+$color-link-top: 						$gray-medium-3;
+$color-link-top-highlight: 	$white;
+
+$color-bg-link-top: 					$black;
+$color-bg-dropdown: 					$gray-dark-2;
+$color-bg-dropdown-highlight: $gray-dark-3;

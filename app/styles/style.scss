@@ -1,6 +1,35 @@
 @import "bootstrap-sass/lib/bootstrap";
+@import "_mixins/all";
+
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600");
+@import url("http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700");
 
 /* Put your CSS here */
 html, body {
-    margin: 20px;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-size: $font-size-small;
+	line-height: $line-height;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	color: $color-text;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+a {
+	color: $color-link;
+	text-decoration: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+li {
+	padding: 0;
 }

@@ -1,0 +1,46 @@
+@import "_mixins/all";
+
+table.time_slot_list {
+	width: 100%;
+	border-collapse: collapse;
+	border-radius: 8px;
+	overflow: hidden;
+
+	thead {
+		background: $gray-dark-3;
+		color: $gray-light-1;
+		font-size: $font-size-big;
+		font-weight: 400;
+		line-height: 2em;
+
+		th.status { width: 40px;  }
+		th.date { width: 80px; }
+		th.start { width: 70px; }
+		th.end { width: 70px; }
+		th.type { width: 200px; text-align: left;  }
+		th.hospital { text-align: left; }
+		th.surgeon { text-align: left; }
+	}
+
+	tbody {
+		line-height: 2.5em;
+
+		.status, .date, .start, .end {
+			text-align: center;
+		}
+
+		tr.free td.status { color: green; }
+		tr.reserved td.status { color: red; }
+
+		tr:nth-child(2n) {
+			background: $gray-light-1;
+		}
+
+		tr:nth-child(2n+1) {
+			background: $gray-light-2;
+		}
+
+		tr:last-of-type {
+		}
+	}
+}
