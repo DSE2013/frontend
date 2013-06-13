@@ -2,4 +2,4 @@
   name: 			DS.attr 'string'
   length: 		DS.attr 'number'
   timeSlots: 	DS.hasMany 'Hospitality.TimeSlot'
-  operations: DS.hasMany 'Hospitality.Operation'
+  operations:   DS.hasMany 'Hospitality.Operation'

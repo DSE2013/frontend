@@ -20,5 +20,6 @@ require 'controllers/*'
 require 'helpers/*'
 require 'models/*'
 require 'views/*'
+require 'fixtures'
 
 Hospitality.setup()
