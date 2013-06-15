@@ -1,5 +1,26 @@
-<div id="top">
-	{{ partial "top" }}
+<div class="navbar">
+	<div class="navbar-inner">
+		{{#linkTo index class='brand'}}Hospitality{{/linkTo}}
+
+		<ul class="nav">
+			{{#if Hospitality.Auth.signedOut}}
+			<li>{{#linkTo public.time_slots}}Time Slots{{/linkTo}}</li>
+			{{/if}}
+		  <li class="divider"></li>
+		  <li>{{#linkTo hospital.time_slots}}Time Slots{{/linkTo}}</li>
+
+			{{#if Hospitality.Auth.user.isSurgeon}}
+				<li>{{#linkTo reservations}}Reservations{{/linkTo}}</li>
+			{{/if}}
+
+			{{#if Hospitality.Auth.signedIn}}
+				<li class="divider-vertical"></li>
+			  <li>{{#linkTo notifications}}Notifications{{/linkTo}}</li>
+		  {{/if}}
+		</ul>
+
+		{{ view Hospitality.AuthView }}
+	</div>
 </div>
 
 <div id="main" class="container">

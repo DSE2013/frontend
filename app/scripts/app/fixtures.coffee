@@ -39,9 +39,19 @@ Hospitality.Notification.FIXTURES = [
 Hospitality.Hospital.FIXTURES = [
   {
     id: 1,
-    name: "Donauspital",
-    latitude: 16.123,
-    longitude: 48.12,
+    name: "AKH Wien",
+    time_slot_ids: []
+  }, {
+    id: 2,
+    name: "LKH Klosterneuburg",
+    time_slot_ids: []
+  }, {
+    id: 3,
+    name: "Barmherzige Brüder Wien",
+    time_slot_ids: []
+  }, {
+    id: 4,
+    name: "LKH Tulln",
     time_slot_ids: []
   }
 ]
@@ -94,21 +104,103 @@ Hospitality.OperationType.FIXTURES = [
     operations: []
   }, {
     id: 4
-    name: "Kardiologie"
-    length: 60
-    time_slots: []
-    operations: []
-  }
-  {
-    id: 5
     name: "Neurochirurgie"
     length: 300
+    time_slots: []
+    operations: []
+  }, {
+    id: 5
+    name: "Kardiologie"
+    length: 60
     time_slots: []
     operations: []
   }
 ]
 
 Hospitality.User.FIXTURES = [
-  id: 1,
-  name: "Dr. Aufmesser"
+  {
+    id: 1,
+    name: "Dr. Aufmesser",
+    email: 'aufmesser@surgeons.com',
+    passwort: '1234',
+    role: 'surgeon'
+  }, {
+    id: 2,
+    name: "Dr. Gott",
+    email: 'gott@surgeons.com',
+    passwort: '1234',
+    role: 'surgeon'
+  }, {
+    id: 3,
+    name: "Dr. Gunst-Fehler",
+    email: 'gunst-fehler@surgeons.com',
+    passwort: '1234',
+    role: 'surgeon'
+  }, {
+    id: 4,
+    name: "Dr. Augenblick",
+    email: 'augenblick@surgeons.com',
+    passwort: '1234',
+    role: 'surgeon'
+  }, {
+    id: 5,
+    name: "Hr. Franz Meier",
+    email: 'meier@patients.com',
+    passwort: '1234',
+    role: 'patient'
+  }, {
+    id: 6,
+    name: "Fr. Hermine Müller",
+    email: 'mueller@patients.com',
+    passwort: '1234',
+    role: 'patient'
+  }, {
+    id: 7,
+    name: "Hr. Markus Moser",
+    email: 'moser@patients.com',
+    passwort: '1234',
+    role: 'patient'
+  }, {
+    id: 8,
+    name: "Fr. Beatrix Bauer",
+    email: 'bauer@patients.com',
+    passwort: '1234',
+    role: 'patient'
+  }, {
+    id: 9,
+    name: "Hr. Ben Bäcker",
+    email: 'baecker@patients.com',
+    passwort: '1234',
+    role: 'patient'
+  }, {
+    id: 10,
+    name: "Fr. Gloria Fasching",
+    email: 'fasching@patients.com',
+    passwort: '1234',
+    role: 'patient'
+  }, {
+    id: 11,
+    name: "AKH Wien Schwester",
+    email: 'akh@hospitals.com',
+    passwort: '1234',
+    role: 'hospital_employee'
+  }, {
+    id: 12,
+    name: "LKH Klosterneuburg Büro",
+    email: 'lkh@hospitals.com',
+    passwort: '1234',
+    role: 'hospital_employee'
+  }, {
+    id: 13,
+    name: "Barmherzige Brüder OP-Organisation",
+    email: 'bbw@hospitals.com',
+    passwort: '1234',
+    role: 'hospital_employee'
+  }, {
+    id: 14,
+    name: "LKH Tulln Verwaltung",
+    email: 'tulln@hospitals.com',
+    passwort: '1234',
+    role: 'hospital_employee'
+  }
 ]

@@ -1,0 +1,1 @@
+@Hospitality.ReservationsController = Ember.ArrayController.extend()

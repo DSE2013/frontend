@@ -13,6 +13,7 @@ $.extend Hospitality,
 	config:
 		api_endpoint: $('meta[rel="hospitality.api_endpoint"]').attr('href')
 
+require 'auth'
 require 'store'
 require 'router'
 require 'routes/*'

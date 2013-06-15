@@ -8,7 +8,8 @@ Hospitality.Router.map ->
 
   @resource 'surgeon', ->
     @route 'operations'
-    @route 'reservations'
+    @resource 'reservations', ->
+      @route 'new'
     @resource 'notifications'
 
   @resource 'hospital', ->
