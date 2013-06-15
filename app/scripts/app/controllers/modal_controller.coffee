@@ -1,0 +1,1 @@
+Hospitality.ModalController = Ember.Controller.extend()

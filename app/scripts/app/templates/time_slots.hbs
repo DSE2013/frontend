@@ -1,4 +1,10 @@
-<h1>Time Slots</h1>
+<h1>
+	Time Slots
+
+	{{#if Hospitality.Auth.user.isHospitalEmployee}}
+		<button class="btn pull-right" {{action newTimeSlot}}>Neuer OP-Slot</button>
+	{{/if}}
+</h1>
 
 <table class="time_slot_list">
 	<thead>
@@ -10,18 +16,30 @@
 			<th class="type">OP Typ</th>
 			<th class="hospital">Krankenhaus</th>
 			<th class="surgeon">Arzt</th>
+			{{#if Hospitality.Auth.user.isHospitalEmployee}}
+				<th class="patient">Patient</th>
+				<th class="actions"></th>
+			{{/if}}
 		</tr>
 	</thead>
 	<tbody>
 		{{#each controller.filteredTimeSlots}}
-			<tr {{bindAttr class="operation:reserved:free"}}>
+			<tr style="height: 40px" {{bindAttr class="operation:reserved:free"}}>
 				<td class="status"><i {{bindAttr class="operation:icon-time:icon-leaf"}}</td>
 				<td class="date">{{dateOnly start }}</td>
 				<td class="start">{{timeOnly start }}</td>
 				<td class="end">{{timeOnly end }}</td>
 				<td class="type">{{ operationType.name }}</td>
 				<td class="hospital">{{ hospital.name }}</td>
-				<td class="surgeon">{{ operation.surgeon.name }}</td>
+				<td class="surgeon">{{ operation.doctor.user.name }}</td>
+				{{#if Hospitality.Auth.user.isHospitalEmployee}}
+					<td class="patient">{{ operation.patient.user.name }}</td>
+					<td style="text-align: right; padding-right: 25px">
+						{{#unless operation}}
+							<button class="btn btn-small" {{action deleteTimeSlot this}}>Stornieren</button>
+						{{/unless}}
+					</td>
+				{{/if}}
 			</tr>
 		{{/each}}
 	</tbody>

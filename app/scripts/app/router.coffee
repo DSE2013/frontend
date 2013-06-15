@@ -1,17 +1,8 @@
 Hospitality.Router.map ->
-  @resource 'public', ->
-    @route 'time_slots'
+  @resource 'reservations', ->
+    @route 'new'
 
-  @resource 'patient', ->
-    @route 'reservations'
-    @resource 'notifications'
+  @resource 'time_slots', ->
+    @route 'new'
 
-  @resource 'surgeon', ->
-    @route 'operations'
-    @resource 'reservations', ->
-      @route 'new'
-    @resource 'notifications'
-
-  @resource 'hospital', ->
-    @route 'time_slots'
-    @resource 'notifications'
+  @resource 'notifications'

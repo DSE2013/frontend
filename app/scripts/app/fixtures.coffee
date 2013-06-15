@@ -56,6 +56,40 @@ Hospitality.Hospital.FIXTURES = [
   }
 ]
 
+Hospitality.Operation.FIXTURES = [
+  {
+    id: 1,
+    operationType: 1
+    timeSlot: 1
+    patient: 5
+    doctor: 1
+  }, {
+    id: 2,
+    operationType: 1
+    timeSlot: null
+    patient: 6
+    doctor: 1
+  }, {
+    id: 3,
+    operationType: 2
+    timeSlot: 2
+    patient: 5
+    doctor: 3
+  }, {
+    id: 4,
+    operationType: 3
+    timeSlot: null
+    patient: 7
+    doctor: 2
+  }, {
+    id: 5,
+    operationType: 4
+    timeSlot: null
+    patient: 8
+    doctor: 2
+  }
+]
+
 Hospitality.TimeSlot.FIXTURES = [
   {
     id: 1
@@ -68,18 +102,9 @@ Hospitality.TimeSlot.FIXTURES = [
     id: 2
     start: "2013-05-26 16:00Z"
     end: "2013-05-26 18:00Z"
-    hospital: 1
+    hospital: 2
     operationType: 2
-    operation: 1
-  }
-]
-
-Hospitality.Operation.FIXTURES = [
-  {
-    id: 1,
-    operationType: 1
-    time_slot: 2
-    surgeon: 1
+    operation: 3
   }
 ]
 
@@ -117,31 +142,93 @@ Hospitality.OperationType.FIXTURES = [
   }
 ]
 
+Hospitality.Doctor.FIXTURES = [{
+    id: 1
+    user: 1
+  }, {
+    id: 2
+    user: 2
+  }, {
+    id: 3
+    user: 3
+  }, {
+    id: 4
+    user: 4
+  }
+]
+
+Hospitality.Patient.FIXTURES = [{
+    id: 5,
+    user: 5,
+    ssn: "1111050505"
+  }, {
+    id: 6,
+    user: 6,
+    ssn: "1111060605"
+  }, {
+    id: 7,
+    user: 7,
+    ssn: "1111070707"
+  }, {
+    id: 8,
+    user: 8,
+    ssn: "1111080808"
+  }, {
+    id: 9,
+    user: 9,
+    ssn: "1111090909"
+  }, {
+    id: 10,
+    user: 10,
+    ssn: "1111101010"
+  }
+]
+
+Hospitality.HospitalEmployee.FIXTURES = [
+  {
+    id: 11
+    user: 11
+    hospital: 1
+  }, {
+    id: 12
+    user_id: 12
+    hospital: 2
+  }, {
+    id: 13
+    user: 13
+    hospital: 3
+  }, {
+    id: 14
+    user: 14
+    hospital: 4
+  }
+]
+
 Hospitality.User.FIXTURES = [
   {
     id: 1,
     name: "Dr. Aufmesser",
-    email: 'aufmesser@surgeons.com',
+    email: 'aufmesser@doctors.com',
     passwort: '1234',
-    role: 'surgeon'
+    role: 'doctor'
   }, {
     id: 2,
     name: "Dr. Gott",
-    email: 'gott@surgeons.com',
+    email: 'gott@doctors.com',
     passwort: '1234',
-    role: 'surgeon'
+    role: 'doctor'
   }, {
     id: 3,
     name: "Dr. Gunst-Fehler",
-    email: 'gunst-fehler@surgeons.com',
+    email: 'gunst-fehler@doctors.com',
     passwort: '1234',
-    role: 'surgeon'
+    role: 'doctor'
   }, {
     id: 4,
     name: "Dr. Augenblick",
-    email: 'augenblick@surgeons.com',
+    email: 'augenblick@doctors.com',
     passwort: '1234',
-    role: 'surgeon'
+    role: 'doctor'
   }, {
     id: 5,
     name: "Hr. Franz Meier",

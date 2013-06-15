@@ -1,0 +1,44 @@
+<div class="row-fluid">
+	<div class="span6">
+		<label for="">Sozialversicherungsnummer</label>
+		{{view Ember.TextField valueBinding=controller.ssn}}
+		<i class="icon icon-spinner hide icon-spin" id="search-spinner"></i>
+	</div>
+	{{#if controller.patient}}
+		<div class="span6">
+			<label for="operation_type">Operationstyp</label>
+			{{view Ember.Select viewName="select"
+	                    contentBinding="controller.operationTypes"
+	                    optionLabelPath="content.name"
+	                    optionValuePath="content"
+	                    prompt="Wählen Sie einen OP-Typ:"
+	                    selectionBinding="controller.operationType"}}
+    </div>
+	{{/if}}
+</div>
+
+	<div class="row-fluid">
+		<div class="span6">
+			<p>
+				<strong>Name:</strong> {{ controller.patient.user.name }}
+			</p>
+			<p>
+				<strong>SSN:</strong> {{formatSSN controller.patient.ssn }}
+			</p>
+		</div>
+		<div class="span6">
+			<p>
+				<strong>Arzt:</strong> {{formatSSN model.user.name }}
+			</p>
+			<p>
+				<strong>OP-Typ:</strong> {{formatSSN controller.operationType.name }}
+			</p>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+	</div>
+
+	<button class='btn pull-right' {{action createReservation}} {{bindAttr disabled=controller.validRequest}}>Operation reservieren</button>
+
+</div>

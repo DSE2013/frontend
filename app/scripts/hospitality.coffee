@@ -13,6 +13,8 @@ $.extend Hospitality,
 	config:
 		api_endpoint: $('meta[rel="hospitality.api_endpoint"]').attr('href')
 
+require 'mixins/*'
+
 require 'auth'
 require 'store'
 require 'router'

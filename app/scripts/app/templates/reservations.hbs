@@ -1,4 +1,8 @@
-<h2>Reservations</h2>
+<h1>
+	Reservations
+
+	<button class="btn pull-right" {{action newReservation}}>Neue Reservierung</button>
+</h1>
 
 <table class="time_slot_list">
 	<thead>
@@ -10,18 +14,51 @@
 			<th class="surgeon">Patient</th>
 			<th class="type">OP Typ</th>
 			<th class="hospital">Krankenhaus</th>
+			<th class="actions"></th>
 		</tr>
 	</thead>
 	<tbody>
 		{{#each controller}}
-			<tr {{bindAttr class="operation:reserved:free"}}>
-				<td class="status"><i {{bindAttr class="operation:icon-time:icon-leaf"}}</td>
-				<td class="date">{{dateOnly start }}</td>
-				<td class="start">{{timeOnly start }}</td>
-				<td class="end">{{timeOnly end }}</td>
-				<td class="surgeon">{{ patient.name }}</td>
-				<td class="type">{{ operationType.name }}</td>
-				<td class="hospital">{{ hospital.name }}</td>
+			<tr {{bindAttr class="timeSlot:reserved:free"}} style="height: 40px">
+				<td class="status"><i {{bindAttr class="timeSlot:icon-time:icon-leaf"}}</td>
+
+				<td class="date">
+					{{#if timeSlot}}
+						{{dateOnly timeSlot.start }}
+					{{else}}
+						-
+					{{/if}}
+				</td>
+				<td class="start">
+					{{#if timeSlot}}
+						{{timeOnly timeSlot.start }}
+					{{else}}
+						-
+					{{/if}}
+				</td>
+				<td class="end">
+					{{#if timeSlot}}
+						{{timeOnly timeSlot.end }}
+					{{else}}
+						-
+					{{/if}}
+				</td>
+				<td class="surgeon">
+					{{ patient.name }}
+				</td>
+				<td class="type">
+					{{ operationType.name }}
+				</td>
+				<td class="hospital">
+					{{#if timeSlot}}
+						{{ timeSlot.hospital.name }}
+					{{else}}
+						-
+					{{/if}}
+				</td>
+				<td style="text-align: right; padding-right: 25px">
+					<button class="btn btn-small" {{action deleteReservation this}}>Stornieren</button>
+				</td>
 			</tr>
 		{{/each}}
 	</tbody>

@@ -1,13 +1,17 @@
-Hospitality.PublicTimeSlotsController = Ember.ArrayController.extend({
-  filterHospital: 0
-  filterSurgeon: 0
+@Hospitality.TimeSlotsController = Ember.ArrayController.extend Hospitality.ModalFunctionality,
+  filterHospital: null
+  filterDoctor: null
+  filterOperationType: null
 
   filteredTimeSlots: ( ->
     c = @get('content')
 
-    c = c.filterProperty('hospital.id') if @filterHospital > 0
-    c = c.filterProperty('operation.surgeon.id', @filterSurgeon) if @filterSurgeon > 0
+    c = c.filterProperty('hospital') if @filterHospital
+    c = c.filterProperty('operation.doctor', @filterDoctor) if @filterDoctor
+    c = c.filterProperty('operationType', @filterOperationType) if @filterOperationType
 
     c
   ).property('@each')
-})
+
+  deleteTimeSlot: (slot) ->
+    slot.deleteRecord()

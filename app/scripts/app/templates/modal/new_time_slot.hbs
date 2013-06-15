@@ -1,0 +1,72 @@
+<div class="row-fluid">
+	<div class="span6">
+		<label for="">Datum</label>
+		{{view Ember.TextField type=date class='input-block-level' valueBinding=controller.slotDate}}
+	</div>
+	<div class="span3">
+		<label for="">Beginn</label>
+		{{view Ember.TextField type=time class='input-block-level' valueBinding=controller.slotStartTime}}
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span5">
+		<label for="">OP-Länge</label>
+		{{view Ember.Select class="input-block-level"
+				viewName="select"
+        contentBinding="controller.operationLengths"
+        optionLabelPath="content.name"
+        optionValuePath="content.length"
+        prompt="Wählen Sie eine OP-Länge"
+        selectionBinding="controller.slotLength"}}
+	</div>
+	<div class="span7">
+		<label for="">OP-Typ</label>
+			{{view Ember.Select
+					viewName="select" class="input-block-level"
+          contentBinding="controller.operationTypes"
+          optionLabelPath="content.name"
+          optionValuePath="content"
+          prompt="Wählen Sie einen OP-Typ"
+          selectionBinding="model.operationType"}}
+	</div>
+</div>
+
+	<div class="row-fluid">
+		<div class="span12"><h4>Zusammenfassung</h4></div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<p>
+				<strong>Datum:</strong> {{dateOnly controller.slotStartDate }}
+			</p>
+		</div>
+		<div class="span3">
+			<p>
+				<strong>Start:</strong> {{timeOnly controller.slotStartDate }}
+			</p>
+		</div>
+		<div>
+			<p>
+				<strong>Ende:</strong> {{timeOnly controller.slotEndDate }}
+			</p>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<p>
+				<strong>Krankenhaus:</strong> {{ model.name }}
+			</p>
+		</div>
+		<div class="span6">
+			<p>
+				<strong>OP-Typ:</strong> {{ controller.operationType.name }}
+			</p>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+	</div>
+
+	<button class='btn pull-right' {{action createTimeSlot}} {{bindAttr disabled=controller.validRequest}}>OP-Slot erstellen</button>
+
+</div>

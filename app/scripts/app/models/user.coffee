@@ -1,16 +1,21 @@
 @Hospitality.User = DS.Model.extend
 	name:		DS.attr 'string'
-	ssn:		DS.attr 'string'
 	email: 	DS.attr 'string'
 	token: 	DS.attr 'string'
-	type:		DS.attr 'string'
 	role:		DS.attr 'string'
 
-	isSurgeon: ->
-		@get('role') is 'surgeon'
+	isDoctor: (->
+		@get('role') is 'doctor'
+	).property('role')
 
-	isPatieng: ->
+	isPatient: (->
 		@get('role') is 'patient'
+	).property('role')
 
-	isHospitalEmployee: ->
+	isHospitalEmployee: (->
 		@get('role') is 'hospital_employee'
+	).property('role')
+
+	canSeeReservations: ( ->
+		@get('isPatient') or @get('isDoctor')
+	).property('role')
