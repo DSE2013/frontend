@@ -1,0 +1,5 @@
+{{#if Hospitality.Auth.signedIn }}
+	{{ view Hospitality.AuthSignOutView }}
+{{else}}
+	{{ view Hospitality.AuthSignInView }}
+{{/if}}
