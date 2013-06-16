@@ -3,5 +3,7 @@ Hospitality.Store = DS.Store.extend
   adapter: DS.FixtureAdapter.extend
   	queryFixtures: (fixtures, query, type) ->
   		return fixtures
-	# adapter: DS.RESTAdapter.create
-	# 	url: Hospitality.config.api_endpoint
+
+
+# DS.RESTAdapter.reopen
+# 		url: 'http://dse2013-api.cloudfoundry.com'

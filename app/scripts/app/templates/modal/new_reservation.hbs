@@ -7,7 +7,7 @@
 	{{#if controller.patient}}
 		<div class="span6">
 			<label for="operation_type">Operationstyp</label>
-			{{view Ember.Select viewName="select"
+			{{view Ember.Select viewName="select" class="input-block-level"
 	                    contentBinding="controller.operationTypes"
 	                    optionLabelPath="content.name"
 	                    optionValuePath="content"

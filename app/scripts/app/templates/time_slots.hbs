@@ -1,10 +1,64 @@
-<h1>
+<h2>
 	Time Slots
 
 	{{#if Hospitality.Auth.user.isHospitalEmployee}}
 		<button class="btn pull-right" {{action newTimeSlot}}>Neuer OP-Slot</button>
 	{{/if}}
-</h1>
+</h2>
+
+<div>
+	<h3>Filter</h3>
+	<div class="row">
+		<div class="span3">
+	    <label>Datum</label>
+      {{view Ember.TextField type='date' class="input-block-level" valueBinding=controller.filterDate}}
+		</div>
+		<div class="span2">
+	    <label>Von</label>
+	    {{view Ember.TextField type='time' class="input-block-level" valueBinding=controller.filterStart}}
+		</div>
+		<div class="span2">
+	    <label>Bis</label>
+	    {{view Ember.TextField type='time' class="input-block-level" valueBinding=controller.filterEnd}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<label>Status</label>
+			{{view Ember.Select viewName="select" class="input-block-level"
+          contentBinding="controller.statuses"
+          prompt="-"
+          selectionBinding="controller.filterStatus"}}
+		</div>
+		<div class="span3">
+			<label>OP-Typ</label>
+			{{view Ember.Select viewName="select" class="input-block-level"
+          contentBinding="controller.operationTypes"
+          optionLabelPath="content.name"
+          optionValuePath="content"
+          prompt="-"
+          selectionBinding="controller.filterOperationType"}}
+		</div>
+		<div class="span3">
+			<label>Krankenhaus</label>
+			{{view Ember.Select viewName="select" class="input-block-level"
+          contentBinding="controller.hospitals"
+          optionLabelPath="content.name"
+          optionValuePath="content"
+          prompt="-"
+          selectionBinding="controller.filterHospital"}}
+		</div>
+		<div class="span3">
+			<label>Arzt</label>
+			{{view Ember.Select viewName="select" class="input-block-level"
+          contentBinding="controller.doctors"
+          optionLabelPath="content.user.name"
+          optionValuePath="content"
+          prompt="-"
+          selectionBinding="controller.filterDoctor"}}
+		</div>
+	</div>
+</div>
 
 <table class="time_slot_list">
 	<thead>

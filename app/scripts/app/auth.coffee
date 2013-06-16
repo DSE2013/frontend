@@ -1,5 +1,5 @@
 Hospitality.Auth = Ember.Auth.create
-	baseUrl: 'http://localhost:9001'
+	baseUrl: 'http://dse2013-auth-server.herokuapp.com'
 	signInEndPoint: '/sign_in'
 	signOutEndPoint: '/sign_out'
 
@@ -20,6 +20,5 @@ Hospitality.Auth = Ember.Auth.create
 	authRedirectable:
     route: 'sign-in'
 
-
-Hospitality.Auth.on 'authAccess', ->
-	logAccess()
+Hospitality.Auth.on 'signOutComplete', ->
+	window.location.reload()

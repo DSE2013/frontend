@@ -1,8 +1,74 @@
-<h1>
-	Reservations
+<h2>
+	Reservierungen
 
-	<button class="btn pull-right" {{action newReservation}}>Neue Reservierung</button>
-</h1>
+	{{#if Hospitality.Auth.user.isDoctor}}
+		<button class="btn pull-right" {{action newReservation}}>Neue Reservierung</button>
+	{{/if}}
+</h2>
+
+<div>
+	<h3>Filter</h3>
+	<div class="row">
+		<div class="span3">
+	    <label>Datum</label>
+      {{view Ember.TextField type='date' class="input-block-level" valueBinding=controller.filterDate}}
+		</div>
+		<div class="span2">
+	    <label>Von</label>
+	    {{view Ember.TextField type='time' class="input-block-level" valueBinding=controller.filterStart}}
+		</div>
+		<div class="span2">
+	    <label>Bis</label>
+	    {{view Ember.TextField type='time' class="input-block-level" valueBinding=controller.filterEnd}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="span3">
+			<label>Status</label>
+			{{view Ember.Select viewName="select" class="input-block-level"
+          contentBinding="controller.statuses"
+          prompt="-"
+          selectionBinding="controller.filterStatus"}}
+		</div>
+		<div class="span3">
+			{{#if Hospitality.Auth.user.isDoctor}}
+				<label>Patient</label>
+				{{view Ember.Select viewName="select" class="input-block-level"
+	          contentBinding="controller.patients"
+	          optionLabelPath="content.user.name"
+	          optionValuePath="content"
+	          prompt="-"
+	          selectionBinding="controller.filterPatient"}}
+			{{else}}
+				<label>Arzt</label>
+				{{view Ember.Select viewName="select" class="input-block-level"
+	          contentBinding="controller.doctors"
+	          optionLabelPath="content.user.name"
+	          optionValuePath="content"
+	          prompt="-"
+	          selectionBinding="controller.filterDoctor"}}
+			{{/if}}
+		</div>
+		<div class="span3">
+			<label>OP-Typ</label>
+			{{view Ember.Select viewName="select" class="input-block-level"
+          contentBinding="controller.operationTypes"
+          optionLabelPath="content.name"
+          optionValuePath="content"
+          prompt="-"
+          selectionBinding="controller.filterOperationType"}}
+		</div>
+		<div class="span3">
+			<label>Krankenhaus</label>
+			{{view Ember.Select viewName="select" class="input-block-level"
+          contentBinding="controller.hospitals"
+          optionLabelPath="content.name"
+          optionValuePath="content"
+          prompt="-"
+          selectionBinding="controller.filterHospital"}}
+		</div>
+	</div>
+</div>
 
 <table class="time_slot_list">
 	<thead>
@@ -11,14 +77,19 @@
 			<th class="date">Datum</th>
 			<th class="start">Von</th>
 			<th class="end">Bis</th>
-			<th class="surgeon">Patient</th>
+			<th class="surgeon">
+					{{#if Hospitality.Auth.user.isDoctor}}
+						Patient
+					{{else}}
+						Arzt
+					{{/if}}</th>
 			<th class="type">OP Typ</th>
 			<th class="hospital">Krankenhaus</th>
 			<th class="actions"></th>
 		</tr>
 	</thead>
 	<tbody>
-		{{#each controller}}
+		{{#each controller.filteredReservations}}
 			<tr {{bindAttr class="timeSlot:reserved:free"}} style="height: 40px">
 				<td class="status"><i {{bindAttr class="timeSlot:icon-time:icon-leaf"}}</td>
 
@@ -44,7 +115,11 @@
 					{{/if}}
 				</td>
 				<td class="surgeon">
-					{{ patient.name }}
+					{{#if Hospitality.Auth.user.isDoctor}}
+						{{ patient.user.name }}
+					{{else}}
+						{{ doctor.user.name }}
+					{{/if}}
 				</td>
 				<td class="type">
 					{{ operationType.name }}
@@ -57,7 +132,9 @@
 					{{/if}}
 				</td>
 				<td style="text-align: right; padding-right: 25px">
-					<button class="btn btn-small" {{action deleteReservation this}}>Stornieren</button>
+					{{#if Hospitality.Auth.user.isDoctor}}
+						<button class="btn btn-small" {{action deleteReservation this}}>Stornieren</button>
+					{{/if}}
 				</td>
 			</tr>
 		{{/each}}
