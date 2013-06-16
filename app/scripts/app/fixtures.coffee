@@ -144,41 +144,41 @@ Hospitality.OperationType.FIXTURES = [
 
 Hospitality.Doctor.FIXTURES = [{
     id: 1
-    user: 1
+    user: '25298040074072600546865492040'
   }, {
     id: 2
-    user: 2
+    user: '25297434067534855771376292409'
   }, {
     id: 3
-    user: 3
+    user: '25298040498347714242185179209'
   }, {
     id: 4
-    user: 4
+    user: '25298040996409804232343072842'
   }
 ]
 
 Hospitality.Patient.FIXTURES = [{
-    id: 5,
+    id: '25298103430098671547270070075',
     user: 5,
     ssn: "1111050505"
   }, {
-    id: 6,
+    id: '25298103688353088579203792700',
     user: 6,
     ssn: "1111060605"
   }, {
-    id: 7,
+    id: '25298103909714017463718412093',
     user: 7,
     ssn: "1111070707"
   }, {
-    id: 8,
+    id: '25298104094181458200813928254',
     user: 8,
     ssn: "1111080808"
   }, {
-    id: 9,
+    id: '25298104333989131159038099263',
     user: 9,
     ssn: "1111090909"
   }, {
-    id: 10,
+    id: '25298104518456571896133615424',
     user: 10,
     ssn: "1111101010"
   }
@@ -187,105 +187,105 @@ Hospitality.Patient.FIXTURES = [{
 Hospitality.HospitalEmployee.FIXTURES = [
   {
     id: 11
-    user: 11
+    user: '25298101050468686038737911607'
     hospital: 1
   }, {
     id: 12
-    user_id: 12
+    user_id: '25298101806785193060829527864'
     hospital: 2
   }, {
     id: 13
-    user: 13
+    user: '25298102231060306756149215033'
     hospital: 3
   }, {
     id: 14
-    user: 14
+    user: '25298102378634259345825627962'
     hospital: 4
   }
 ]
 
 Hospitality.User.FIXTURES = [
   {
-    id: 1,
+    id: '25298040074072600546865492040',
     name: "Dr. Aufmesser",
     email: 'aufmesser@doctors.com',
     passwort: '1234',
     role: 'doctor'
   }, {
-    id: 2,
+    id: '25297434067534855771376292409',
     name: "Dr. Gott",
     email: 'gott@doctors.com',
     passwort: '1234',
     role: 'doctor'
   }, {
-    id: 3,
+    id: '25298040498347714242185179209',
     name: "Dr. Gunst-Fehler",
     email: 'gunst-fehler@doctors.com',
     passwort: '1234',
     role: 'doctor'
   }, {
-    id: 4,
+    id: '25298040996409804232343072842',
     name: "Dr. Augenblick",
     email: 'augenblick@doctors.com',
     passwort: '1234',
     role: 'doctor'
   }, {
-    id: 5,
+    id: '25298103430098671547270070075',
     name: "Hr. Franz Meier",
     email: 'meier@patients.com',
     passwort: '1234',
     role: 'patient'
   }, {
-    id: 6,
+    id: '25298103688353088579203792700',
     name: "Fr. Hermine Müller",
     email: 'mueller@patients.com',
     passwort: '1234',
     role: 'patient'
   }, {
-    id: 7,
+    id: '25298103909714017463718412093',
     name: "Hr. Markus Moser",
     email: 'moser@patients.com',
     passwort: '1234',
     role: 'patient'
   }, {
-    id: 8,
+    id: '25298104094181458200813928254',
     name: "Fr. Beatrix Bauer",
     email: 'bauer@patients.com',
     passwort: '1234',
     role: 'patient'
   }, {
-    id: 9,
+    id: '25298104333989131159038099263',
     name: "Hr. Ben Bäcker",
     email: 'baecker@patients.com',
     passwort: '1234',
     role: 'patient'
   }, {
-    id: 10,
+    id: '25298104518456571896133615424',
     name: "Fr. Gloria Fasching",
     email: 'fasching@patients.com',
     passwort: '1234',
     role: 'patient'
   }, {
-    id: 11,
-    name: "AKH Wien Schwester",
+    id: '25298101050468686038737911607',
+    name: "AKH Wien",
     email: 'akh@hospitals.com',
     passwort: '1234',
     role: 'hospital_employee'
   }, {
-    id: 12,
-    name: "LKH Klosterneuburg Büro",
+    id: '25298101806785193060829527864',
+    name: "LKH Klosterneuburg",
     email: 'lkh@hospitals.com',
     passwort: '1234',
     role: 'hospital_employee'
   }, {
-    id: 13,
-    name: "Barmherzige Brüder OP-Organisation",
+    id: '25298102231060306756149215033',
+    name: "Barmherzige Brüder",
     email: 'bbw@hospitals.com',
     passwort: '1234',
     role: 'hospital_employee'
   }, {
-    id: 14,
-    name: "LKH Tulln Verwaltung",
+    id: '25298102378634259345825627962',
+    name: "LKH Tulln",
     email: 'tulln@hospitals.com',
     passwort: '1234',
     role: 'hospital_employee'
